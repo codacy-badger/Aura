@@ -14,6 +14,10 @@ import android.location.LocationManager;
 import android.os.Handler;
 import android.support.v4.content.ContextCompat;
 
+import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
+import static android.Manifest.permission.ACCESS_FINE_LOCATION;
+import static android.content.pm.PackageManager.PERMISSION_GRANTED;
+
 
 /**
  * One-shot location updater.
@@ -59,7 +63,7 @@ public class SSingleLocationUpdater {
     }
 
     public void requestUpdate() {
-        if (PackageManager.PERMISSION_GRANTED != ContextCompat.checkSelfPermission(m_context, Manifest.permission.ACCESS_COARSE_LOCATION)) {
+        if (PERMISSION_GRANTED != ContextCompat.checkSelfPermission(m_context, ACCESS_COARSE_LOCATION) || PERMISSION_GRANTED != ContextCompat.checkSelfPermission(m_context, ACCESS_FINE_LOCATION)) {
             return;
         }
         if (m_requested == true) {
