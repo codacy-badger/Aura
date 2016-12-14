@@ -10,6 +10,10 @@ import android.support.v4.content.ContextCompat;
 
 import java.util.List;
 
+import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
+import static android.Manifest.permission.ACCESS_FINE_LOCATION;
+import static android.content.pm.PackageManager.PERMISSION_GRANTED;
+
 /**
  * Created by 1500242 on 2015/6/4.
  */
@@ -20,10 +24,9 @@ public class SLocationUtil {
 
     @Nullable
     public static Location getLastBestLocation(Context context) {
-        if (PackageManager.PERMISSION_GRANTED != ContextCompat.checkSelfPermission(context, Manifest.permission_group.LOCATION)) {
+        if (PERMISSION_GRANTED != ContextCompat.checkSelfPermission(context, ACCESS_COARSE_LOCATION) || PERMISSION_GRANTED != ContextCompat.checkSelfPermission(context, ACCESS_FINE_LOCATION)) {
             return null;
         }
-
         LocationManager locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
         Location        result          = null;
         Location        compareLocation = null;
