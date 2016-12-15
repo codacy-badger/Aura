@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.AssetManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.os.Build;
 import android.support.annotation.StringRes;
 import android.util.DisplayMetrics;
 
@@ -28,7 +29,11 @@ public class StringResourceUtil {
         AssetManager assets = standardResources.getAssets();
         DisplayMetrics metrics = standardResources.getDisplayMetrics();
         Configuration configuration = new Configuration(standardResources.getConfiguration());
-        configuration.setLocale(locale);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            configuration.setLocale(locale);
+        }else{
+            configuration.locale = locale;
+        }
         return new Resources(assets, metrics, configuration);
     }
 }

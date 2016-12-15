@@ -1,6 +1,5 @@
 <resources>
-    <string name="app_name">Util</string>
-    <string name="app_noConnection">無網路連線</string>
+    <string name="general_noConnection">無網路連線</string>
 
     <!-- Speech recognize-->
     <string name="speechRecognize_errorSpeechRecognizeNotAvailable">此裝置沒有語音辨識功能</string>

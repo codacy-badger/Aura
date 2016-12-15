@@ -220,7 +220,11 @@ public class SUIDefine {
                 new ViewTreeObserver.OnGlobalLayoutListener() {
                     @Override
                     public void onGlobalLayout() {
-                        rootView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                            rootView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                        }else{
+                            rootView.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                        }
                         selfAdjustAllView(rootView);
                     }
                 });

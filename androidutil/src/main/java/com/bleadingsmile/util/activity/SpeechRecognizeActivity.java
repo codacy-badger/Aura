@@ -38,7 +38,7 @@ public abstract class SpeechRecognizeActivity extends Activity {
         window.addFlags(FLAG_TURN_SCREEN_ON);
 
         if (!SSystemUtil.isNetworkAvailable(this)){
-            onRecognizeFailed(getString(R.string.app_noConnection));
+            onRecognizeFailed(getString(R.string.general_noConnection));
             finish();
             return;
         }

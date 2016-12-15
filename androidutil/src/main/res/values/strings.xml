@@ -1,6 +1,5 @@
 <resources>
-    <string name="app_name">Util</string>
-    <string name="app_noConnection">Network not available.</string>
+    <string name="general_noConnection">Network not available.</string>
 
     <!-- Speech recognize-->
     <string name="speechRecognize_errorSpeechRecognizeNotAvailable">Speech recognize not available at this device.</string>

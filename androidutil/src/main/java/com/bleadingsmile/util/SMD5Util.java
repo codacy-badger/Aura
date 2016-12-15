@@ -39,12 +39,12 @@ public class SMD5Util {
     }
 
     public static String calculateMD5(InputStream inputStream) {
-        try (InputStream tryInputStream = inputStream){
+        try {
             MessageDigest digest;
             digest = MessageDigest.getInstance("MD5");
             byte[] buffer = new byte[8192];
             int    read;
-            while ((read = tryInputStream.read(buffer)) > 0) {
+            while ((read = inputStream.read(buffer)) > 0) {
                 digest.update(buffer, 0, read);
             }
             byte[]     md5sum = digest.digest();
@@ -56,6 +56,13 @@ public class SMD5Util {
             return INVALID_MD5;
         } catch (NoSuchAlgorithmException e) {
             return INVALID_MD5;
+        }finally {
+            try {
+                if (inputStream != null) {
+                    inputStream.close();
+                }
+            }catch (IOException ignore){
+            }
         }
     }
 }

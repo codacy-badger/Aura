@@ -58,39 +58,47 @@ public class SSystemUtil {
      * Uri.parse("content://com.lge.clock.alarmclock.ALProvider/calcus")
      */
     public static List<SAlarm> getAllSetNormalAlarms(Context context, Uri uri) {
-        try (Cursor c = context.getContentResolver().query(uri, null, "enabled=1", null, null)) {
+        Cursor cursor = null;
+        try  {
+            cursor = context.getContentResolver().query(uri, null, "enabled=1", null, null);
             List<SAlarm> alarms = new ArrayList<>();
-            if (c != null) {
-                if (c.moveToFirst()) {
+            if (cursor != null) {
+                if (cursor.moveToFirst()) {
                     do {
-                        int hour = c.getInt(c.getColumnIndex("hour"));
-                        int minutes = c.getInt(c.getColumnIndex("minutes"));
-                        int daysofweek = c.getInt(c.getColumnIndex("daysofweek"));
-                        if (c.getColumnIndex("repeaton") != -1) { // for ASUS
-                            if (c.getInt(c.getColumnIndex("repeaton")) == 0) {
+                        int hour = cursor.getInt(cursor.getColumnIndex("hour"));
+                        int minutes = cursor.getInt(cursor.getColumnIndex("minutes"));
+                        int daysofweek = cursor.getInt(cursor.getColumnIndex("daysofweek"));
+                        if (cursor.getColumnIndex("repeaton") != -1) { // for ASUS
+                            if (cursor.getInt(cursor.getColumnIndex("repeaton")) == 0) {
                                 daysofweek = 0;
                             }
                         }
                         alarms.add(new SAlarm(hour, minutes, daysofweek));
-                    } while (c.moveToNext());
+                    } while (cursor.moveToNext());
                 }
             }
             return alarms;
         } catch (Exception ignore) {
             ignore.printStackTrace();
             return new ArrayList<>();
+        }finally {
+            if (cursor != null) {
+                cursor.close();
+            }
         }
     }
 
     public static List<SAlarm> getAllSetSamsungAlarms(Context context) {
-        try (Cursor c = context.getContentResolver().query(Uri.parse("content://com.samsung.sec.android.clockpackage/alarm"), null, "active=1", null, null)) {
+        Cursor cursor = null;
+        try {
+            cursor = context.getContentResolver().query(Uri.parse("content://com.samsung.sec.android.clockpackage/alarm"), null, "active=1", null, null);
             List<SAlarm> alarms = new ArrayList<>();
-            if (c != null) {
-                if (c.moveToFirst()) {
+            if (cursor != null) {
+                if (cursor.moveToFirst()) {
                     do {
-                        String alarmtime = c.getString(c.getColumnIndex("alarmtime"));
+                        String alarmtime = cursor.getString(cursor.getColumnIndex("alarmtime"));
                         String daysOfWeek = "";
-                        String binaryDaysOfWeekInDB = Integer.toBinaryString(c.getInt(c.getColumnIndex("repeattype")));
+                        String binaryDaysOfWeekInDB = Integer.toBinaryString(cursor.getInt(cursor.getColumnIndex("repeattype")));
                         String daysOfWeekInDB = "";
                         if (binaryDaysOfWeekInDB.length() < 29) {
                             for (int i = 0; i < (29 - binaryDaysOfWeekInDB.length()); i++) {
@@ -112,13 +120,17 @@ public class SSystemUtil {
                         int hour = Integer.valueOf(alarmtime.substring(0, alarmtime.length() == 4 ? 2 : 1));
                         int minutes = Integer.valueOf(alarmtime.substring(alarmtime.length() == 4 ? 2 : 1, alarmtime.length() == 4 ? 3 : 2));
                         alarms.add(new SAlarm(hour, minutes, Integer.parseInt(daysOfWeek, 2)));
-                    } while (c.moveToNext());
+                    } while (cursor.moveToNext());
                 }
             }
             return alarms;
         } catch (Exception ignore) {
             ignore.printStackTrace();
             return new ArrayList<>();
+        }finally {
+            if (cursor != null) {
+                cursor.close();
+            }
         }
     }
 
