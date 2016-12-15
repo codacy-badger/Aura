@@ -6,8 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Window;
 
+import com.bleadingsmile.util.R;
 import com.bleadingsmile.util.SSystemUtil;
-import com.bleadingsmile.util.android.R;
 
 import java.util.ArrayList;
 

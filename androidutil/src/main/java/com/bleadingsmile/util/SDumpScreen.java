@@ -16,7 +16,6 @@ import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.bleadingsmile.util.android.R;
 
 /**
  * Created by 1500242A on 2016/4/28.
