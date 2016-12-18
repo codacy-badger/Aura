@@ -15,6 +15,7 @@ import java.util.List;
 import static android.content.pm.PackageManager.PERMISSION_DENIED;
 
 /**
+ * Permission Granter with remember user preference which denied the permission with "not show again" checkbox checked when promoting to grant the permission.
  * Created by Larry Hsiao on 2016/10/26.
  */
 public abstract class PermissionGranterActivity extends Activity {

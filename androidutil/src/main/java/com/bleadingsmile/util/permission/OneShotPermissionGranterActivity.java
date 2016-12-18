@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 
 /**
- * One-shot permission granter activity, finish no matter what use choose.
+ * One-shot permission granter activity, finish no matter what user choose with no UI notification.
  * Created by Larry Hsiao on 2016/10/26.
  */
 public class OneShotPermissionGranterActivity extends PermissionGranterActivity {
