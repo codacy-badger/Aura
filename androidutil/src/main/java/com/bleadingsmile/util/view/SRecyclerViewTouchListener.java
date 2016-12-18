@@ -27,16 +27,14 @@ public class SRecyclerViewTouchListener extends RecyclerView.SimpleOnItemTouchLi
                 new GestureDetector.SimpleOnGestureListener() {
                     @Override
                     public boolean onSingleTapUp(MotionEvent e) {
-                        m_listener.onRecyclerItemClick(m_accessChild,
-                                                       m_accessPosition);
+                        m_listener.onRecyclerItemClick(m_accessChild, m_accessPosition);
                         return true;
                     }
 
                     @Override
                     public void onLongPress(MotionEvent e) {
                         super.onLongPress(e);
-                        m_listener.onRecyclerItemLongPress(m_accessChild,
-                                                           m_accessPosition);
+                        m_listener.onRecyclerItemLongPress(m_accessChild, m_accessPosition);
                     }
                 };
         m_gestureDetector = new GestureDetector(context, gestureListener);
