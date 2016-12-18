@@ -8,6 +8,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.bleadingsmile.utildemo.demoitem.DemoItem;
+import com.bleadingsmile.utildemo.demoitem.DemoItemFactory;
+
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 
 /**
@@ -18,8 +21,10 @@ public class EntryActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        final ArrayAdapter<DemoItem> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
-        adapter.add(new OneShotPermissionGranter(this));
+        final ArrayAdapter<DemoItem> adapter = new ArrayAdapter<>(
+                this,
+                android.R.layout.simple_list_item_1,
+                DemoItemFactory.obtainDemoItems(this));
 
         ListView listView = new ListView(this);
         listView.setLayoutParams(new ViewGroup.LayoutParams(MATCH_PARENT, MATCH_PARENT));

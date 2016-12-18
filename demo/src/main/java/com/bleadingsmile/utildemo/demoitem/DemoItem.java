@@ -1,4 +1,4 @@
-package com.bleadingsmile.utildemo;
+package com.bleadingsmile.utildemo.demoitem;
 
 /**
  * Created by Larry Hsiao on 2016/12/18.

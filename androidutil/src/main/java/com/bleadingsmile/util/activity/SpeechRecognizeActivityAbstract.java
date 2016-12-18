@@ -22,11 +22,11 @@ import static android.view.WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON;
 import static java.util.Locale.TRADITIONAL_CHINESE;
 
 /**
- * Helper class for implementing speech recognize quickly.
+ * Helper class for implementing android`s default speech recognize quickly.
  * Override method {@link #onRecognizeFinish(String)} to handle the recognize result
  * Created by 1500242A on 2016/10/14.
  */
-public abstract class SpeechRecognizeActivity extends Activity {
+public abstract class SpeechRecognizeActivityAbstract extends Activity {
     private static final int REQUEST_CODE_SPEECH_RECOGNIZE = 55123;
 
     @Override
