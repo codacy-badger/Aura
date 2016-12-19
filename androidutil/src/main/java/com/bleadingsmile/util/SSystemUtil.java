@@ -33,7 +33,7 @@ public class SSystemUtil {
     }
 
     public static boolean isStoragePermissionGrated(Context context) {
-        return ContextCompat.checkSelfPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE) == PERMISSION_GRANTED;
+        return ContextCompat.checkSelfPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PERMISSION_GRANTED;
     }
 
     public static boolean isServiceRunning(Context context, Class classType) {

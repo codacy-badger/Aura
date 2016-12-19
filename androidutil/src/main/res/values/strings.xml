@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="general_noConnection">Network not available.</string>
+
+    <!-- Speech recognize-->
+    <string name="speechRecognize_errorSpeechRecognizeNotAvailable">Speech recognize not available at this device.</string>
+    <string name="speechRecognizeE_errorUserCanceled">Recognize canceled</string>
+    <string name="speechRecognize_errorNoMatch">No matched</string>
+
+    <!-- Loading Blocker -->
+    <string name="loadingBlocker_loading">Loading…</string>
+</resources>
