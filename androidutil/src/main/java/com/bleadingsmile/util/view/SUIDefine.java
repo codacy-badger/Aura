@@ -1,9 +1,7 @@
 package com.bleadingsmile.util.view;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.res.Configuration;
-import android.graphics.Rect;
 import android.os.Build;
 import android.support.annotation.IdRes;
 import android.support.v4.view.ViewPager;
@@ -25,16 +23,16 @@ import java.util.List;
 public class SUIDefine {
     private static SUIDefine s_instance = null;
 
-    private int   m_originalHeight  = 0;
-    private int   m_originalWidth   = 0;
-    private float m_heightScale     = 0;
-    private float m_widthScale      = 0;
-    private float m_fontScale       = 0;
-    private int   m_statusBarHeight = 0;
+    private int m_originalHeight = 0;
+    private int m_originalWidth = 0;
+    private float m_heightScale = 0;
+    private float m_widthScale = 0;
+    private float m_fontScale = 0;
+    private int m_statusBarHeight = 0;
 
     private final List<Class<? extends ViewGroup>> m_excludeView;
-    private final List<Integer>                    m_excludeIds;
-    private final int                              m_textSizeUnit;
+    private final List<Integer> m_excludeIds;
+    private final int m_textSizeUnit;
 
     private float m_fScreenScaleDensity = 0;
 
@@ -79,7 +77,7 @@ public class SUIDefine {
         m_widthScale = (float) m_Dm.widthPixels / m_originalWidth;
         m_fontScale = Math.min(m_heightScale, m_widthScale);
 
-        m_fScreenScaleDensity = m_Dm.scaledDensity; //snoykuo 2014/05/02
+        m_fScreenScaleDensity = m_Dm.scaledDensity;
 
         m_excludeView = new ArrayList<>();
         m_excludeView.add(ListView.class);
@@ -105,7 +103,7 @@ public class SUIDefine {
             return 0;
         }
 
-        int iLayoutHeight    = getTextSize(dTextSizeDefine) * iTextLength;
+        int iLayoutHeight = getTextSize(dTextSizeDefine) * iTextLength;
         int iMaxLayoutHeight = getLayoutHeight(m_originalHeight);
         if (iMaxLayoutHeight <= iLayoutHeight) {
             return iMaxLayoutHeight;
@@ -119,7 +117,7 @@ public class SUIDefine {
             return 0;
         }
 
-        int iLayoutWidth    = getTextSize(dTextSizeDefine) * iTextLength;
+        int iLayoutWidth = getTextSize(dTextSizeDefine) * iTextLength;
         int iMaxLayoutWidth = getLayoutWidth(m_originalWidth);
         if (iMaxLayoutWidth <= iLayoutWidth) {
             return iMaxLayoutWidth;
@@ -173,11 +171,13 @@ public class SUIDefine {
 
     public void setMargins(View view, int left, int top, int right, int bottom) {
         if (view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-            if (Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN && (left != 0 && top == 0 && right == 0 && bottom == 0)) {
+            if (Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN &&
+                    (left != 0 && top == 0 && right == 0 && bottom == 0)) {
                 ((ViewGroup.MarginLayoutParams) view.getLayoutParams()).setMarginStart(getLayoutWidth(left));
                 return;
             }
-            if (Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN && (left == 0 && top == 0 && right != 0 && bottom == 0)) {
+            if (Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN &&
+                    (left == 0 && top == 0 && right != 0 && bottom == 0)) {
                 ((ViewGroup.MarginLayoutParams) view.getLayoutParams()).setMarginEnd(getLayoutWidth(right));
                 return;
             }
@@ -201,7 +201,6 @@ public class SUIDefine {
     }
 
     public void setViewSize(View view, int width, int height) {
-        //某些手機才會發現這個問題...
         if (width >= 0) {
             view.getLayoutParams().width = getLayoutWidth(width);
         } else {
@@ -222,7 +221,7 @@ public class SUIDefine {
                     public void onGlobalLayout() {
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                             rootView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                        }else{
+                        } else {
                             rootView.getViewTreeObserver().removeGlobalOnLayoutListener(this);
                         }
                         selfAdjustAllView(rootView);
@@ -321,22 +320,10 @@ public class SUIDefine {
 
         int height = 0;
 
-        // 法一
-        // http://blog.csdn.net/devilnov/article/details/9309659
-        Rect frame = new Rect();
-        try {
-            ((Activity) context).getWindow().getDecorView().getWindowVisibleDisplayFrame(frame);
-            height = frame.top;
-        } catch (Exception e) {
-
-        }
-
-        if (0 == height) {// 法二
-            // http://stackoverflow.com/questions/3407256/height-of-status-bar-in-android
-            int resourceId = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
-            if (resourceId > 0) {
-                height = context.getResources().getDimensionPixelSize(resourceId);
-            }
+        // http://stackoverflow.com/questions/3407256/height-of-status-bar-in-android
+        int resourceId = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
+        if (resourceId > 0) {
+            height = context.getResources().getDimensionPixelSize(resourceId);
         }
         return height;
     }
