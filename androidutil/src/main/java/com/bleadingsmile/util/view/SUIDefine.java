@@ -35,6 +35,7 @@ public class SUIDefine {
     private final List<Class<? extends ViewGroup>> m_excludeView;
     private final List<Integer>                    m_excludeIds;
     private final int                              m_textSizeUnit;
+    private boolean keepRataioIfSquare = true;
 
     private float m_fScreenScaleDensity = 0;
 
@@ -208,7 +209,11 @@ public class SUIDefine {
             view.getLayoutParams().width = width;
         }
         if (height >= 0) {
-            view.getLayoutParams().height = getLayoutHeight(height);
+            if (width == height && keepRataioIfSquare){
+                view.getLayoutParams().height = getLayoutWidth(width);
+            }else {
+                view.getLayoutParams().height = getLayoutHeight(height);
+            }
         } else {
             view.getLayoutParams().height = height;
         }
