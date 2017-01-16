@@ -209,7 +209,11 @@ public class SUIDefine {
             view.getLayoutParams().width = width;
         }
         if (height >= 0) {
-            view.getLayoutParams().height = getLayoutHeight(height);
+            if (height == width){
+                view.getLayoutParams().height = getLayoutWidth(width);
+            }else {
+                view.getLayoutParams().height = getLayoutHeight(height);
+            }
         } else {
             view.getLayoutParams().height = height;
         }
