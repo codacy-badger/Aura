@@ -49,7 +49,7 @@ public abstract class PermissionGranterActivity extends Activity {
         PermissionGranterPreference preference = new PermissionGranterPreference(this);
         boolean hasSkippedPermission = false;
         for (String permission : permissionsNeedProvide) {
-            if (!ActivityCompat.shouldShowRequestPermissionRationale(this, permission)) {
+            if (!preference.shouldShowRequestPermissionRationale( permission)) {
                 preference.skipPromotion(permission);
                 hasSkippedPermission = true;
             }
