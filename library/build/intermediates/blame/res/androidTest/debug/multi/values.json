@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "G:\\Developer\\Project\\Android studio\\Recogtag\\androidutil\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values\\values.xml",
+        "outputFile": "/home/larryhsiao/Projects/Android/aura/G:\\Developer\\Project\\Android studio\\Recogtag\\androidutil\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values\\values.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 100
                 },
                 "from": {
-                    "file": "G:\\Developer\\Project\\Android studio\\Recogtag\\androidutil\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "file": "/home/larryhsiao/Projects/Android/aura/G:\\Developer\\Project\\Android studio\\Recogtag\\androidutil\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -24,7 +24,7 @@
         ]
     },
     {
-        "outputFile": "G:\\Developer\\Project\\Android studio\\aura\\library\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values\\values.xml",
+        "outputFile": "/home/larryhsiao/Projects/Android/aura/G:\\Developer\\Project\\Android studio\\aura\\library\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values\\values.xml",
         "map": [
             {
                 "to": {
@@ -35,7 +35,31 @@
                     "endOffset": 100
                 },
                 "from": {
-                    "file": "G:\\Developer\\Project\\Android studio\\aura\\library\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "file": "/home/larryhsiao/Projects/Android/aura/G:\\Developer\\Project\\Android studio\\aura\\library\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 49,
+                        "endOffset": 100
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "/home/larryhsiao/Projects/Android/aura/library/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values/values.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 49,
+                    "endOffset": 100
+                },
+                "from": {
+                    "file": "/home/larryhsiao/Projects/Android/aura/library/build/intermediates/bundles/debug/res/values/values.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
