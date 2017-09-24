@@ -51,19 +51,31 @@ public abstract class HttpApi implements HttpRequest {
     }
 
     private HttpResponse handleResponse(int responseCode, InputStream responseStream) throws Exception {
-        try (DataInputStream wrappedStream = new DataInputStream(responseStream)) {
+        DataInputStream wrappedStream = null;
+        try {
+            wrappedStream = new DataInputStream(responseStream);
             byte[] responseBytes = convertInputStreamToByteArray(wrappedStream);
             HttpResponse responseObject = new HttpResponse();
             responseObject.code = responseCode;
             responseObject.bodyBytes = responseBytes;
             return responseObject;
+        } finally {
+            if (wrappedStream != null) {
+                wrappedStream.close();
+            }
         }
     }
 
     private byte[] convertInputStreamToByteArray(InputStream inputStream) throws Exception {
-        try (ByteArrayOutputStream result = new ByteArrayOutputStream()) {
+        ByteArrayOutputStream result = null;
+        try {
+            result = new ByteArrayOutputStream();
             channelStream(inputStream, result);
             return result.toByteArray();
+        } finally {
+            if (result != null) {
+                result.close();
+            }
         }
     }
 
