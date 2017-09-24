@@ -11,7 +11,7 @@ import android.view.MenuItem;
 public class TabletNavigation implements Navigation {
     private final ActionBar actionBar;
 
-    TabletNavigation(ActionBar actionBar) {
+    public TabletNavigation(ActionBar actionBar) {
         this.actionBar = actionBar;
     }
 
