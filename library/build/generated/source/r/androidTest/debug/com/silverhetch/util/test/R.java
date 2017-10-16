@@ -10,7 +10,17 @@ package com.silverhetch.util.test;
 public final class R {
     public static final class attr {
     }
+    public static final class integer {
+        public static final int animation_delay_for_previous=0x7f020000;
+        public static final int animation_enterScreen=0x7f020001;
+        public static final int animation_leaveScreen=0x7f020002;
+        public static final int animation_long=0x7f020003;
+        public static final int animation_small=0x7f020004;
+    }
     public static final class string {
-        public static final int app_name=0x7f020000;
+        public static final int appError_unknown=0x7f030000;
+        public static final int app_drawerClose=0x7f030001;
+        public static final int app_drawerOpen=0x7f030002;
+        public static final int app_name=0x7f030003;
     }
 }
