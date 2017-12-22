@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'jacoco'
+apply plugin: 'maven'
 
 jacoco {
     toolVersion = "0.7.9"
@@ -13,7 +14,7 @@ android {
         minSdkVersion 15
         targetSdkVersion 25
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.6"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -71,6 +72,19 @@ project.afterEvaluate {
             reports {
                 xml.enabled = true
                 html.enabled = true
+            }
+        }
+    }
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: "http://172.104.79.181:81/repository/maven-releases/") {
+                authentication(userName: "larryhsiao", password: "snake")
+                pom.groupId = "com.silverhetch"
+                pom.artifactId = "aura"
+                pom.version = android.defaultConfig.versionName
             }
         }
     }
