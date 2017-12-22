@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "/home/larryhsiao/Projects/Android/aura/G:\\Developer\\Project\\Android studio\\Recogtag\\androidutil\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values\\values.xml",
+        "outputFile": "D:\\home\\larryhsiao\\Projects\\Android\\aura\\library\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values\\values.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 100
                 },
                 "from": {
-                    "file": "/home/larryhsiao/Projects/Android/aura/G:\\Developer\\Project\\Android studio\\Recogtag\\androidutil\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "file": "D:\\home\\larryhsiao\\Projects\\Android\\aura\\library\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -24,7 +24,183 @@
         ]
     },
     {
-        "outputFile": "/home/larryhsiao/Projects/Android/aura/G:\\Developer\\Project\\Android studio\\aura\\library\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values\\values.xml",
+        "outputFile": "D:\\Project_own\\Aura\\library\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values\\values.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 62,
+                    "endOffset": 113
+                },
+                "from": {
+                    "file": "D:\\Project_own\\Aura\\library\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 62,
+                        "endOffset": 113
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 118,
+                    "endColumn": 55,
+                    "endOffset": 169
+                },
+                "from": {
+                    "file": "D:\\Project_own\\Aura\\library\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 118,
+                        "endColumn": 55,
+                        "endOffset": 169
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 174,
+                    "endColumn": 55,
+                    "endOffset": 225
+                },
+                "from": {
+                    "file": "D:\\Project_own\\Aura\\library\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 174,
+                        "endColumn": 55,
+                        "endOffset": 225
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 230,
+                    "endColumn": 48,
+                    "endOffset": 274
+                },
+                "from": {
+                    "file": "D:\\Project_own\\Aura\\library\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 230,
+                        "endColumn": 48,
+                        "endOffset": 274
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 279,
+                    "endColumn": 49,
+                    "endOffset": 324
+                },
+                "from": {
+                    "file": "D:\\Project_own\\Aura\\library\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 279,
+                        "endColumn": 49,
+                        "endOffset": 324
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 329,
+                    "endColumn": 117,
+                    "endOffset": 442
+                },
+                "from": {
+                    "file": "D:\\Project_own\\Aura\\library\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 329,
+                        "endColumn": 117,
+                        "endOffset": 442
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 447,
+                    "endColumn": 56,
+                    "endOffset": 499
+                },
+                "from": {
+                    "file": "D:\\Project_own\\Aura\\library\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 447,
+                        "endColumn": 56,
+                        "endOffset": 499
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 504,
+                    "endColumn": 54,
+                    "endOffset": 554
+                },
+                "from": {
+                    "file": "D:\\Project_own\\Aura\\library\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 504,
+                        "endColumn": 54,
+                        "endOffset": 554
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 559,
+                    "endColumn": 49,
+                    "endOffset": 604
+                },
+                "from": {
+                    "file": "D:\\Project_own\\Aura\\library\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 559,
+                        "endColumn": 49,
+                        "endOffset": 604
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "D:\\home\\larryhsiao\\Projects\\Android\\aura\\G:\\Developer\\Project\\Android studio\\Recogtag\\androidutil\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values\\values.xml",
         "map": [
             {
                 "to": {
@@ -35,7 +211,7 @@
                     "endOffset": 100
                 },
                 "from": {
-                    "file": "/home/larryhsiao/Projects/Android/aura/G:\\Developer\\Project\\Android studio\\aura\\library\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "file": "D:\\home\\larryhsiao\\Projects\\Android\\aura\\G:\\Developer\\Project\\Android studio\\Recogtag\\androidutil\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -48,7 +224,7 @@
         ]
     },
     {
-        "outputFile": "/home/larryhsiao/Projects/Android/aura/library/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values/values.xml",
+        "outputFile": "D:\\home\\larryhsiao\\Projects\\Android\\aura\\G:\\Developer\\Project\\Android studio\\aura\\library\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values\\values.xml",
         "map": [
             {
                 "to": {
@@ -59,7 +235,7 @@
                     "endOffset": 100
                 },
                 "from": {
-                    "file": "/home/larryhsiao/Projects/Android/aura/library/build/intermediates/bundles/debug/res/values/values.xml",
+                    "file": "D:\\home\\larryhsiao\\Projects\\Android\\aura\\G:\\Developer\\Project\\Android studio\\aura\\library\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
