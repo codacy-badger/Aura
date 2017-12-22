@@ -80,11 +80,11 @@ project.afterEvaluate {
 uploadArchives {
     repositories {
         mavenDeployer {
-            repository(url: "http://172.104.79.181:81/repository/maven-releases/") {
+            snapshotRepository(url: "http://172.104.79.181:81/repository/maven-snapshots/") {
                 authentication(userName: "larryhsiao", password: "snake")
                 pom.groupId = "com.silverhetch"
                 pom.artifactId = "aura"
-                pom.version = android.defaultConfig.versionName
+                pom.version = android.defaultConfig.versionName+ '-SNAPSHOT'
             }
         }
     }
