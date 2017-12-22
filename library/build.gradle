@@ -1,8 +1,13 @@
 apply plugin: 'com.android.library'
+apply plugin: 'jacoco'
+
+jacoco {
+    toolVersion = "0.7.9"
+}
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.3"
+    buildToolsVersion "26.0.2"
 
     defaultConfig {
         minSdkVersion 15
@@ -19,6 +24,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+            all{
+                jacoco {
+                    includeNoLocationClasses = true
+                }
+            }
+        }
+    }
 }
 
 dependencies {
@@ -31,4 +46,32 @@ dependencies {
     provided 'com.android.support:recyclerview-v7:25.4.0'
     provided 'com.google.code.gson:gson:2.8.2'
     testCompile 'junit:junit:4.12'
+}
+
+
+project.afterEvaluate {
+    android.libraryVariants.all { variant ->
+        def name = variant.name
+        def testTaskName = "test${name.capitalize()}UnitTest"
+        tasks.create(name: "${testTaskName}Coverage", type: JacocoReport, dependsOn: "$testTaskName") {
+            group = "Reporting"
+            description = "Generate Jacoco coverage reports for the ${name.capitalize()} build."
+            classDirectories = fileTree(
+                    dir: "${project.buildDir}/intermediates/classes/${name}",
+                    includes: ['**/com/silverhetch/util/**'],
+                    excludes: ['**/R.class',
+                               '**/R$*.class',
+                               '**/*$ViewInjector*.*',
+                               '**/*$ViewBinder*.*',
+                               '**/BuildConfig.*',
+                               '**/Manifest*.*']
+            )
+            sourceDirectories = files(['src/main/java'].plus(android.sourceSets[name].java.srcDirs))
+            executionData = files("${project.buildDir}/jacoco/${testTaskName}.exec")
+            reports {
+                xml.enabled = true
+                html.enabled = true
+            }
+        }
+    }
 }
