@@ -1,20 +1,25 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
 apply plugin: 'jacoco'
 apply plugin: 'maven'
+
+def deployFile = file("deploy/deploy.properties")
+def deployProperties = new Properties()
+deployProperties.load(new FileInputStream(deployFile))
 
 jacoco {
     toolVersion = "0.7.9"
 }
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "26.0.2"
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
 
     defaultConfig {
         minSdkVersion 15
-        targetSdkVersion 25
-        versionCode 1
-        versionName "1.0.6"
+        targetSdkVersion 27
+        versionCode Integer.valueOf(deployProperties['versionCode'])
+        versionName deployProperties['versionName']
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -42,11 +47,13 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    provided 'com.android.support:appcompat-v7:25.4.0'
-    provided 'com.android.support:design:25.4.0'
-    provided 'com.android.support:recyclerview-v7:25.4.0'
+    provided 'com.android.support:support-fragment:27.1.0'
+    provided 'com.android.support:appcompat-v7:27.1.0'
+    provided 'com.android.support:design:27.1.0'
+    provided 'com.android.support:recyclerview-v7:27.1.0'
     provided 'com.google.code.gson:gson:2.8.2'
     testCompile 'junit:junit:4.12'
+    provided "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 
 
@@ -77,15 +84,19 @@ project.afterEvaluate {
     }
 }
 
+
 uploadArchives {
     repositories {
         mavenDeployer {
-            snapshotRepository(url: "http://172.104.79.181:81/repository/maven-snapshots/") {
-                authentication(userName: "larryhsiao", password: "snake")
-                pom.groupId = "com.silverhetch"
-                pom.artifactId = "aura"
-                pom.version = android.defaultConfig.versionName+ '-SNAPSHOT'
+            snapshotRepository(url:deployProperties['repository'] ) {
+                authentication(userName: deployProperties['username'], password: deployProperties['password'])
+                pom.groupId = deployProperties['groupId']
+                pom.artifactId = deployProperties['artifactId']
+                pom.version = deployProperties['versionName']+ '-SNAPSHOT'
             }
         }
     }
+}
+repositories {
+    mavenCentral()
 }
